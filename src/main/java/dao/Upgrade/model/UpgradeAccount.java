@@ -5,6 +5,16 @@ public class UpgradeAccount {
 	Integer id;
 	Integer ownerId;
 	Double balance;
+
+
+	public UpgradeAccount() {
+	}
+
+	public UpgradeAccount(Integer ownerId, Double balance) {
+		this.ownerId = ownerId;
+		this.balance = balance;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
