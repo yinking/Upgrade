@@ -20,6 +20,12 @@ public class TransactionService {
 
     static Map<Integer, Object> lockMap = new HashMap<Integer, Object>();
 
+    public List<UpgradeTransaction> fetchTenTransaction(int accountId) {
+        List<UpgradeTransaction> upgradeTransactions = transactionDAO.fetchTenTransaction("fromAccountId", "toAccountId", accountId + "");
+        return upgradeTransactions;
+    }
+
+
     synchronized static Object getLock(int aid) {
         if (!lockMap.containsKey(aid)) {
             lockMap.put(aid, new Object());

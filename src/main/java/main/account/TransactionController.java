@@ -19,6 +19,13 @@ public class TransactionController {
     @Autowired
     private TransactionService service;
 
+    @RequestMapping(value = "/ten/{account}", method = RequestMethod.GET)
+    public ResponseEntity<List<UpgradeTransaction>> deposit(@PathVariable Integer account) {
+        List<UpgradeTransaction> upgradeAccount = service.fetchTenTransaction(account);
+        return new ResponseEntity<List<UpgradeTransaction>>(upgradeAccount, HttpStatus.CREATED);
+    }
+
+
     @RequestMapping(value = "/deposit/{account}/{amount}", method = RequestMethod.GET)
     public ResponseEntity<UpgradeAccount> deposit(@PathVariable Integer account, @PathVariable Double amount) {
         UpgradeAccount upgradeAccount = service.deposit(account, amount);

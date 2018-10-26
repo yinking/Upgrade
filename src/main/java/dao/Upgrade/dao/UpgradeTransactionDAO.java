@@ -694,7 +694,7 @@ public class UpgradeTransactionDAO {
         if (field1 == null || "".equals(field1.trim()) || field2 == null || "".equals(field2.trim())) {
             return null;
         }
-        String sql = String.format("SELECT * FROM %s.Transaction WHERE %s = ? or %s = ? order by Id DESC LIMIT ?", dbName, field1, field2, 10);
+        String sql = String.format("SELECT * FROM %s.Transaction WHERE %s = ? or %s = ? order by Id DESC LIMIT 10", dbName, field1, field2);
         List<UpgradeTransaction> result = new ArrayList<UpgradeTransaction>();
         DBConnection conn = pool.getConnection();
         PreparedStatement ps = null;
